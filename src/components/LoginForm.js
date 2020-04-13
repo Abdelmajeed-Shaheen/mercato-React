@@ -71,7 +71,9 @@ class Login extends Component {
                     required
                   />
                   <p style={{ color: "red" }}>
-                    {this.props.errors ? this.props.errors.detail : ""}
+                    {this.props.errors
+                      ? this.props.errors.non_field_errors
+                      : ""}
                   </p>
                 </div>
 

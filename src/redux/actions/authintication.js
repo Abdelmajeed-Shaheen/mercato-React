@@ -31,7 +31,7 @@ export const login = (userData, history) => {
       const res = await instance.post("api/login", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
-      history.replace("/register");
+      history.replace("/private");
     } catch (err) {
       dispatch({
         type: SET_ERRORS,
@@ -47,19 +47,11 @@ export const signup = (userData, history) => {
       const res = await instance.post("api/register", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
-      history.replace("/login");
+      history.replace("/private");
     } catch (err) {
-      console.log(
-        "============================================================="
-      );
-
-      console.log(err);
-      console.log(
-        "============================================================="
-      );
       dispatch({
         type: SET_ERRORS,
-        payload: err,
+        payload: err.response.data,
       });
     }
   };

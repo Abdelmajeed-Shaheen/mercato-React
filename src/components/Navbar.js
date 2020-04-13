@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import * as actions from "../redux/actions";
 
 const Navbar = (props) => {
   return (
@@ -22,9 +23,14 @@ const Navbar = (props) => {
               </div>
             </>
           ) : (
-            <div className="col-4">
-              <h6>Logout</h6>
-            </div>
+            <>
+              <div className="col-4">
+                <h6>{props.user.username}</h6>
+              </div>
+              <div className="col-4" onClick={props.logout}>
+                <h6>Logout</h6>
+              </div>
+            </>
           )}
         </div>
       </div>
@@ -36,4 +42,10 @@ const mapStateToProps = (state) => ({
   user: state.userState.user,
 });
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(actions.logout()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
