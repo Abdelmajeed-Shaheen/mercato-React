@@ -2,11 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions from "../redux/actions";
+import Logo from "../assets/images/logo.png";
 
 const Navbar = (props) => {
   return (
-    <nav className="navbar navbar-light bg-light">
-      <a className="navbar-brand">Navbar</a>
+    <nav className="navbar navbar-light bg-light ">
+      <Link className="navbar-brand" to="/welcome">
+        <img src={Logo} style={{ height: "50px", width: "50px" }} />
+      </Link>
       <div className="my-2 my-sm-0">
         <div className="row">
           {!props.user ? (

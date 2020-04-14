@@ -39,7 +39,7 @@ class SignupForm extends Component {
                   <div className="form-group">
                     <label
                       htmlFor="first_name"
-                      style={{ fontFamily: "Comic Sans MS", color: "#1a237e" }}
+                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
                     >
                       First name
                     </label>
@@ -57,7 +57,7 @@ class SignupForm extends Component {
                   <div className="form-group">
                     <label
                       htmlFor="last_name"
-                      style={{ fontFamily: "Comic Sans MS", color: "#1a237e" }}
+                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
                       required
                     >
                       Last name
@@ -77,7 +77,7 @@ class SignupForm extends Component {
                   <div className="form-group">
                     <label
                       htmlFor="username"
-                      style={{ fontFamily: "Comic Sans MS", color: "#1a237e" }}
+                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
                     >
                       Username
                     </label>
@@ -95,7 +95,7 @@ class SignupForm extends Component {
                   <div className="form-group">
                     <label
                       htmlFor="password"
-                      style={{ fontFamily: "Comic Sans MS", color: "#1a237e" }}
+                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
                     >
                       Password
                     </label>
@@ -125,9 +125,9 @@ class SignupForm extends Component {
                     className="btn btn-primary"
                     style={{
                       fontFamily: "Comic Sans MS",
-                      backgroundColor: "#ffd600 ",
-                      borderColor: "#1a237e",
-                      color: "#1a237e",
+                      backgroundColor: "#fef105",
+                      borderColor: "#469045",
+                      color: "#469045",
                     }}
                   >
                     Signup
@@ -136,7 +136,7 @@ class SignupForm extends Component {
                   <Link
                     to="/login"
                     className="btn btn-link my-2 my-sm-0"
-                    style={{ fontFamily: "Comic Sans MS", color: "#1a237e" }}
+                    style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
                   >
                     Login With an Existing Account
                   </Link>

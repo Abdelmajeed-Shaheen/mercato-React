@@ -1,0 +1,19 @@
+.bglogin {
+  background-image: url(../images/login.jpg);
+  height: 95vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bgsignup {
+  background-image: url(../images/login4.png);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.logo {
+  background-image: url(../images/logo.png);
+}

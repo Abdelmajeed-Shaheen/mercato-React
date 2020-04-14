@@ -30,7 +30,7 @@ export const login = (userData, history) => {
     try {
       const res = await instance.post("api/login", userData);
       const user = res.data;
-      dispatch(setCurrentUser(user.token));
+      dispatch(setCurrentUser(user.access));
       history.replace("/private");
     } catch (err) {
       dispatch({
@@ -46,7 +46,7 @@ export const signup = (userData, history) => {
     try {
       const res = await instance.post("api/register", userData);
       const user = res.data;
-      dispatch(setCurrentUser(user.token));
+      dispatch(setCurrentUser(user.tokens.access));
       history.replace("/private");
     } catch (err) {
       dispatch({
@@ -65,6 +65,7 @@ const setCurrentUser = (token) => {
 
       instance.defaults.headers.common.Authorization = `jwt ${token}`;
       user = jwt_decode(token);
+      console.log(user);
       // dispatch(fetchAllChannels());
     } else {
       localStorage.clear();
