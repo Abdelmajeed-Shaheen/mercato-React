@@ -18,7 +18,7 @@ class Login extends Component {
   };
 
   render() {
-    if (this.props.user) return <Redirect to="/private" />;
+    if (this.props.user) return <Redirect to="/home" />;
     const { username, password } = this.state;
 
     return (
@@ -35,10 +35,7 @@ class Login extends Component {
               <div className="card-body">
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                    <label
-                      htmlFor="username"
-                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
-                    >
+                    <label htmlFor="username" style={{ color: "#469045" }}>
                       Username
                     </label>
                     <input
@@ -49,15 +46,11 @@ class Login extends Component {
                       name="username"
                       placeholder="Username"
                       onChange={this.handleChange}
-                      style={{ fontFamily: "Comic Sans MS" }}
                       required
                     />
                   </div>
                   <div className="form-group">
-                    <label
-                      htmlFor="password"
-                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
-                    >
+                    <label htmlFor="password" style={{ color: "#469045" }}>
                       Password
                     </label>
                     <input
@@ -68,7 +61,6 @@ class Login extends Component {
                       name="password"
                       placeholder="Password"
                       onChange={this.handleChange}
-                      style={{ fontFamily: "Comic Sans MS" }}
                       required
                     />
                     <p style={{ color: "red" }}>
@@ -80,7 +72,6 @@ class Login extends Component {
                     type="submit"
                     className="btn btn-primary"
                     style={{
-                      fontFamily: "Comic Sans MS",
                       backgroundColor: "#fef105 ",
                       borderColor: "#469045",
                       color: "#469045",
@@ -90,9 +81,9 @@ class Login extends Component {
                   </button>
                   <br />
                   <Link
-                    to="/signup"
+                    to="/register"
                     className="btn btn-link my-2 my-sm-0"
-                    style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
+                    style={{ color: "#469045" }}
                   >
                     Signup for an account
                   </Link>

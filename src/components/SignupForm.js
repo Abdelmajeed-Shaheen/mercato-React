@@ -21,7 +21,7 @@ class SignupForm extends Component {
   };
 
   render() {
-    if (this.props.user) return <Redirect to="/private" />;
+    if (this.props.user) return <Redirect to="/home" />;
     const { username, password, first_name, last_name } = this.state;
     return (
       <div className="bgsignup">
@@ -37,10 +37,7 @@ class SignupForm extends Component {
               <div className="card-body">
                 <form onSubmit={this.submitHandler}>
                   <div className="form-group">
-                    <label
-                      htmlFor="first_name"
-                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
-                    >
+                    <label htmlFor="first_name" style={{ color: "#469045" }}>
                       First name
                     </label>
                     <input
@@ -51,13 +48,12 @@ class SignupForm extends Component {
                       name="first_name"
                       placeholder="first_name"
                       onChange={this.changeHandler}
-                      style={{ fontFamily: "Comic Sans MS" }}
                     />
                   </div>
                   <div className="form-group">
                     <label
                       htmlFor="last_name"
-                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
+                      style={{ color: "#469045" }}
                       required
                     >
                       Last name
@@ -70,15 +66,11 @@ class SignupForm extends Component {
                       name="last_name"
                       placeholder="last_name"
                       onChange={this.changeHandler}
-                      style={{ fontFamily: "Comic Sans MS" }}
                       required
                     />
                   </div>
                   <div className="form-group">
-                    <label
-                      htmlFor="username"
-                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
-                    >
+                    <label htmlFor="username" style={{ color: "#469045" }}>
                       Username
                     </label>
                     <input
@@ -93,10 +85,7 @@ class SignupForm extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label
-                      htmlFor="password"
-                      style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
-                    >
+                    <label htmlFor="password" style={{ color: "#469045" }}>
                       Password
                     </label>
                     <input
@@ -107,7 +96,6 @@ class SignupForm extends Component {
                       name="password"
                       placeholder="Password"
                       onChange={this.changeHandler}
-                      style={{ fontFamily: "Comic Sans MS" }}
                       required
                     />
 
@@ -124,7 +112,6 @@ class SignupForm extends Component {
                     type="submit"
                     className="btn btn-primary"
                     style={{
-                      fontFamily: "Comic Sans MS",
                       backgroundColor: "#fef105",
                       borderColor: "#469045",
                       color: "#469045",
@@ -136,7 +123,7 @@ class SignupForm extends Component {
                   <Link
                     to="/login"
                     className="btn btn-link my-2 my-sm-0"
-                    style={{ fontFamily: "Comic Sans MS", color: "#469045" }}
+                    style={{ color: "#469045" }}
                   >
                     Login With an Existing Account
                   </Link>

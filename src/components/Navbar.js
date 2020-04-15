@@ -6,9 +6,9 @@ import Logo from "../assets/images/logo.png";
 
 const Navbar = (props) => {
   return (
-    <nav className="navbar navbar-light bg-light ">
-      <Link className="navbar-brand" to="/welcome">
-        <img src={Logo} style={{ height: "50px", width: "50px" }} />
+    <nav className="navbar navbar-light bg-light sticky-top">
+      <Link className="navbar-brand" to="/home">
+        <img src={Logo} style={{ height: "50px", width: "50px" }} alt="logo" />
       </Link>
       <div className="my-2 my-sm-0">
         <div className="row">
@@ -27,14 +27,17 @@ const Navbar = (props) => {
             </>
           ) : (
             <>
-              <div className="col-4">
+              <div className="col-3 mr-5">
                 <h6>{props.user.username}</h6>
               </div>
-              <div className="col-4" onClick={props.logout}>
+              <div className="col-3" onClick={props.logout}>
                 <h6>Logout</h6>
               </div>
             </>
           )}
+          <div className="col-3">
+            <i className="fas fa-shopping-cart"></i>
+          </div>
         </div>
       </div>
     </nav>
