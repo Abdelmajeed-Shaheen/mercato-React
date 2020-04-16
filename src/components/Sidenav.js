@@ -11,7 +11,6 @@ const Sidenav = ({ categories }) => {
           .replace(/\s/g, "")}`}
         className="collapsed active"
       >
-        <i className="fa fa-gift fa-lg"></i>
         {cat.name}
         {cat.subcategories.length ? <span className="arrow"></span> : ""}
       </li>
@@ -23,7 +22,7 @@ const Sidenav = ({ categories }) => {
           return (
             <Link
               to={`/search/${cat.name}/${sub}`}
-              style={{ textDecoration: "none", color: "white" }}
+              style={{ textDecoration: "none", color: "#fef105" }}
               key={`${cat.name}${sub}`}
             >
               <li key={sub}>{sub}</li>

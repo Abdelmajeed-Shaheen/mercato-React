@@ -11,10 +11,15 @@ const ItemCard = ({ item, setItem }) => {
           <p className="card-text">price: {item.price}</p>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn "
             data-toggle="modal"
             data-target="#exampleModalCenter"
             onClick={setItem}
+            style={{
+              backgroundColor: "#469045",
+              color: "white",
+              borderBlockColor: "#469045",
+            }}
           >
             View Item
           </button>

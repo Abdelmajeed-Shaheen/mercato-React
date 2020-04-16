@@ -15,12 +15,18 @@ const Navbar = (props) => {
           {!props.user ? (
             <>
               <div className="col-4">
-                <Link to="/login">
+                <Link
+                  to="/login"
+                  style={{ textDecoration: "none", color: "#469045" }}
+                >
                   <h6>Login</h6>
                 </Link>
               </div>
               <div className="col-4">
-                <Link to="/register">
+                <Link
+                  to="/register"
+                  style={{ textDecoration: "none", color: "#469045" }}
+                >
                   <h6>Register</h6>
                 </Link>
               </div>
@@ -36,7 +42,10 @@ const Navbar = (props) => {
             </>
           )}
           <div className="col-3">
-            <i className="fas fa-shopping-cart"></i>
+            <i
+              className="fas fa-shopping-basket fa-lg"
+              style={{ color: "#fef105" }}
+            ></i>
           </div>
         </div>
       </div>
