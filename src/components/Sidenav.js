@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 const Sidenav = ({ categories }) => {
+  // put the regex that's repeated below into a const here and reuse it
   const categorylist = categories.map((cat) => (
     <div key={cat.name}>
       <li
@@ -13,7 +14,7 @@ const Sidenav = ({ categories }) => {
       >
         <i className="fa fa-gift fa-lg"></i>
         {cat.name}
-        {cat.subcategories.length ? <span className="arrow"></span> : ""}
+        {cat.subcategories.length ? <span className="arrow"></span> : ""} {/* use the ?? notation */}
       </li>
       <ul
         className="sub-menu collapse"

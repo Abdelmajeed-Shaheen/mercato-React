@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 const Category = ({ categories }) => {
+  // Since this Link below and the search Link below it are pretty identical,
+  // consider moving them into a reusable component
   const categorylist = categories.map((cat) => (
     <Link to={`/search/${cat.name}`} key={cat.name}>
       <div className="col-2" key={cat.id}>
