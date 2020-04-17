@@ -10,7 +10,12 @@ class AddToCart extends Component {
       this.setState({ itemQuan: 1 });
     }
   }
+  // checkInput**
   chenckInput = (event) => {
+    /**
+     * You can rearrange the conditions to this single condition:
+     * (event.target.value > 0 && event.target.value <= this.props.item.in_stock) || (event.target.value === "")
+     */
     if (event.target.value > 0 || event.target.value === "") {
       if (
         event.target.value <= this.props.item.in_stock ||
@@ -21,6 +26,8 @@ class AddToCart extends Component {
     }
   };
   render() {
+    // reverse the condition below
+    // if not in stock return the message
     return (
       <>
         {this.props.item.in_stock ? (
@@ -44,7 +51,7 @@ class AddToCart extends Component {
               className="form-control text-center px-2"
               id="inlineFormInputGroupUsername2"
               value={this.state.itemQuan}
-              onChange={(event) => this.chenckInput(event)}
+              onChange={(event) => this.chenckInput(event)} {/** no need for arrow function */}
             />
             <div className="input-group-append">
               <button
