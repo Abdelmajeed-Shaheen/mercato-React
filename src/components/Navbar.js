@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions from "../redux/actions";
 import Logo from "../assets/images/logo.png";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 const Navbar = (props) => {
   return (
     <nav className="navbar navbar-light bg-light sticky-top">
@@ -36,16 +37,24 @@ const Navbar = (props) => {
               <div className="col-3 mr-5">
                 <h6>{props.user.username}</h6>
               </div>
-              <div className="col-3" onClick={props.logout}>
-                <h6>Logout</h6>
-              </div>
+              <Link
+                to="/home"
+                style={{ textDecoration: "none", color: "#469045" }}
+              >
+                <div className="col-3" onClick={props.logout}>
+                  <h6>Logout</h6>
+                </div>
+              </Link>
             </>
           )}
           <div className="col-3">
-            <i
-              className="fas fa-shopping-basket fa-lg"
-              style={{ color: "#fef105" }}
-            ></i>
+            <Link to="/cart">
+              <FontAwesomeIcon
+                icon={faShoppingCart}
+                style={{ color: "#fef105" }}
+              />
+              {props.cart.length && props.cart.length}
+            </Link>
           </div>
         </div>
       </div>
@@ -55,6 +64,7 @@ const Navbar = (props) => {
 
 const mapStateToProps = (state) => ({
   user: state.userState.user,
+  cart: state.cartState.cartitems,
 });
 
 const mapDispatchToProps = (dispatch) => {

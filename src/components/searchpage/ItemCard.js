@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../assets/images/logo.png";
-import AddToCart from "./AddToCart";
+import logo from "../../assets/images/logo.png";
+import AddToCart from "../cart/AddToCart";
 const ItemCard = ({ item, setItem }) => {
   return (
     <div className="col-sm-3 mb-2">

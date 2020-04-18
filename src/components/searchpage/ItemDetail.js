@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../assets/images/logo.png";
-import AddToCart from "./AddToCart";
+import logo from "../../assets/images/logo.png";
+import AddToCart from "../cart/AddToCart";
 const ItemDetail = ({ item }) => {
   return (
     <div

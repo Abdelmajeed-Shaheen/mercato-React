@@ -1,4 +1,5 @@
 export { login, logout, signup, checkForExpiredToken } from "./authintication";
 export { setErrors } from "./errors";
 export { fetchAllCategories } from "./category";
-export { getAllItems } from "./Item";
+export { getAllItems, filterItems } from "./Item";
+export { addCartItem, emptyCart, removeCartItem } from "./cart";

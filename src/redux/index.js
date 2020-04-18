@@ -13,7 +13,8 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
+store.dispatch(getAllItems());
 store.dispatch(checkForExpiredToken());
 store.dispatch(fetchAllCategories());
-store.dispatch(getAllItems());
+
 export default store;

@@ -67,7 +67,7 @@ const setCurrentUser = (token) => {
       user = jwt_decode(token);
       // dispatch(fetchAllChannels());
     } else {
-      localStorage.clear();
+      localStorage.removeItem("token");
       delete instance.defaults.headers.common.Authorization;
     }
     dispatch({

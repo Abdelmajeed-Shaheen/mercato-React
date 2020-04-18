@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-const Sidenav = ({ categories }) => {
+import * as actions from "../../redux/actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowCircleDown, faMinus } from "@fortawesome/free-solid-svg-icons";
+const Sidenav = ({ categories, params, filter }) => {
   const categorylist = categories.map((cat) => (
     <div key={cat.name}>
       <li
@@ -9,10 +12,18 @@ const Sidenav = ({ categories }) => {
         data-target={`#${cat.name
           .replace(/[^a-z ^A-Z]/g, "")
           .replace(/\s/g, "")}`}
-        className="collapsed active"
+        className={
+          params.category === cat.name ? "collapsed activecat" : "collapsed"
+        }
+        style={{ fontSize: "14px" }}
       >
         {cat.name}
-        {cat.subcategories.length ? <span className="arrow"></span> : ""}
+        {cat.subcategories.length && (
+          <FontAwesomeIcon
+            icon={faArrowCircleDown}
+            style={{ marginLeft: "2px" }}
+          />
+        )}
       </li>
       <ul
         className="sub-menu collapse"
@@ -24,8 +35,18 @@ const Sidenav = ({ categories }) => {
               to={`/search/${cat.name}/${sub}`}
               style={{ textDecoration: "none", color: "#fef105" }}
               key={`${cat.name}${sub}`}
+              onClick={() => filter({ category: cat.name, subcat: sub })}
             >
-              <li key={sub}>{sub}</li>
+              <li
+                key={sub}
+                className={params.subcat === sub ? "active" : "none"}
+              >
+                <FontAwesomeIcon
+                  icon={faMinus}
+                  style={{ marginLeft: "2px", marginRight: "2px" }}
+                />
+                {sub}
+              </li>
             </Link>
           );
         })}
@@ -53,4 +74,10 @@ const mapStateToProps = (state) => ({
   categories: state.categoryState.categories,
 });
 
-export default connect(mapStateToProps)(Sidenav);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    filter: (params) => dispatch(actions.filterItems(params)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidenav);
