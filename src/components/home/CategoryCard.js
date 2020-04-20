@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../redux/actions";
-import logo from "../../assets/images/logo.png";
 const CategoryCard = ({ cat, filter }) => {
   return (
     <div
@@ -15,11 +14,16 @@ const CategoryCard = ({ cat, filter }) => {
         key={cat.name}
         style={{ textDecoration: "none", color: "#469045" }}
       >
-        <div className="card">
+        <div className="card h-100">
           <div className="card-body">
             <p className="card-text">{cat.name}</p>
           </div>
-          <img src={logo} className="card-img-top" alt={`${logo}`} />
+          <img
+            src={cat.image}
+            className="card-img-top rounded-circle px-3 py-3"
+            alt={cat.image}
+            style={{ height: "150px" }}
+          />
         </div>
       </Link>
     </div>
