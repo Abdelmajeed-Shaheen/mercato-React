@@ -3,9 +3,14 @@ import logo from "../../assets/images/logo.png";
 import AddToCart from "../cart/AddToCart";
 const ItemCard = ({ item, setItem }) => {
   return (
-    <div className="col-sm-3 mb-2">
+    <div className="col-md-4 mb-2">
       <div className="card h-100">
-        <img src={logo} className="card-img-top" alt={item.name} />
+        <img
+          src={item.image}
+          className="card-img-top"
+          alt={item.name}
+          style={{ height: "280px" }}
+        />
         <div className="card-body">
           <h5 className="card-title">{item.name}</h5>
           <p className="card-text">price: {item.price}</p>

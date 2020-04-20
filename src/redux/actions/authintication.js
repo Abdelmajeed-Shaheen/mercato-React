@@ -63,7 +63,7 @@ const setCurrentUser = (token) => {
     if (token) {
       localStorage.setItem("token", token);
 
-      instance.defaults.headers.common.Authorization = `jwt ${token}`;
+      instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       user = jwt_decode(token);
       // dispatch(fetchAllChannels());
     } else {

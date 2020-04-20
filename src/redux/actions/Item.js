@@ -2,9 +2,9 @@ import { GET_ALL_ITEMS, FILTER_ITEMS } from "./actionTypes";
 import { instance } from "./instance";
 
 export const getAllItems = () => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
-      const res = await instance.post("api/items");
+      const res = await instance.get("api/items");
       dispatch({
         type: GET_ALL_ITEMS,
         payload: res.data,
@@ -15,7 +15,7 @@ export const getAllItems = () => {
   };
 };
 
-export const filterItems = (params) => {
+export const filterItems = params => {
   return {
     type: FILTER_ITEMS,
     payload: params,

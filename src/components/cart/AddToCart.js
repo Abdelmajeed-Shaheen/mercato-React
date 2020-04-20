@@ -18,13 +18,13 @@ class AddToCart extends Component {
       this.setState({ itemQuan: 1 });
     }
   }
-  chenckInput = (event) => {
+  chenckInput = event => {
     if (
       (event.target.value > 0 &&
         event.target.value <= this.props.item.in_stock) ||
       event.target.value === ""
     ) {
-      this.setState({ itemQuan: event.target.value });
+      this.setState({ itemQuan: parseInt(event.target.value) });
     }
   };
   render() {
@@ -59,7 +59,7 @@ class AddToCart extends Component {
             className="form-control text-center px-2"
             id="inlineFormInputGroupUsername2"
             value={this.state.itemQuan}
-            onChange={(event) => this.chenckInput(event)}
+            onChange={event => this.chenckInput(event)}
           />
           <div className="input-group-append">
             <button
@@ -101,7 +101,7 @@ class AddToCart extends Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     addtocart: (item, quantity) =>
       dispatch(actions.addCartItem(item, quantity)),

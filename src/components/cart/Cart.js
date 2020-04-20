@@ -73,7 +73,10 @@ class Cart extends Component {
               {this.props.user ? (
                 <>
                   {cartitemslist.length ? (
-                    <button className="btn btn-warning btn-block my-4">
+                    <button
+                      className="btn btn-warning btn-block my-4"
+                      onClick={this.props.checkout}
+                    >
                       checkout
                     </button>
                   ) : (
@@ -102,6 +105,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     remove: (item) => dispatch(actions.removeCartItem(item)),
     clear: () => dispatch(actions.emptyCart()),
+    checkout: () => dispatch(actions.checkout()),
   };
 };
 

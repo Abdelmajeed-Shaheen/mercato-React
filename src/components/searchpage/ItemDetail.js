@@ -19,9 +19,9 @@ const ItemDetail = ({ item }) => {
           <div className="row">
             <div className="col-4">
               <img
-                src={logo}
+                src={item.image}
                 className="d-block w-100"
-                alt={`${logo}`}
+                alt={`${item.name}`}
                 style={{ maxHeight: "450px" }}
               />
             </div>
