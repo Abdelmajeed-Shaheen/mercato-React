@@ -46,12 +46,31 @@ class Cart extends Component {
                 Cart
               </h1>
               <Link
-                style={{ color: "#469045", textDecoration: "none" }}
+                style={{
+                  color: "#469045",
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                }}
                 onClick={() => this.props.clear()}
               >
                 Clear Cart{" "}
                 <FontAwesomeIcon icon={faTrash} style={{ color: "red" }} />
               </Link>
+              {this.props.user && (
+                <Link
+                  style={{
+                    color: "#469045",
+                    textDecoration: "none",
+                    float: "right",
+                    fontWeight: "bold",
+                  }}
+                  onClick={() => this.props.getOrders()}
+                  to="/profile"
+                >
+                  Order History
+                </Link>
+              )}
+
               <div
                 className="mt-4"
                 style={{
@@ -111,6 +130,7 @@ const mapDispatchToProps = (dispatch) => {
     remove: (item) => dispatch(actions.removeCartItem(item)),
     clear: () => dispatch(actions.emptyCart()),
     checkout: () => dispatch(actions.checkout()),
+    getOrders: () => dispatch(actions.getOrders()),
   };
 };
 
