@@ -1,10 +1,10 @@
 import jwt_decode from "jwt-decode";
 
 import { instance } from "./instance";
-import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
+import { SET_CURRENT_USER, SET_ERRORS, GETPROFILE } from "./actionTypes";
 
 export const checkForExpiredToken = () => {
-  return (dispatch) => {
+  return dispatch => {
     // Check for token expiration
     const token = localStorage.getItem("token");
 
@@ -26,7 +26,7 @@ export const checkForExpiredToken = () => {
 };
 
 export const login = (userData, history) => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const res = await instance.post("api/login", userData);
       const user = res.data;
@@ -42,7 +42,7 @@ export const login = (userData, history) => {
 };
 
 export const signup = (userData, history) => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const res = await instance.post("api/register", userData);
       const user = res.data;
@@ -57,18 +57,22 @@ export const signup = (userData, history) => {
   };
 };
 
-const setCurrentUser = (token) => {
-  return async (dispatch) => {
+const setCurrentUser = token => {
+  return async dispatch => {
     let user = null;
     if (token) {
       localStorage.setItem("token", token);
 
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       user = jwt_decode(token);
-      // dispatch(fetchAllChannels());
+      dispatch(getProfile());
     } else {
       localStorage.removeItem("token");
       delete instance.defaults.headers.common.Authorization;
+      dispatch({
+        type: GETPROFILE,
+        payload: null,
+      });
     }
     dispatch({
       type: SET_CURRENT_USER,
@@ -83,4 +87,22 @@ const setCurrentUser = (token) => {
 
 export const logout = () => {
   return setCurrentUser();
+};
+
+export const getProfile = () => {
+  return async dispatch => {
+    try {
+      const res = await instance.get("api/user");
+      const user = res.data;
+      dispatch({
+        type: GETPROFILE,
+        payload: user,
+      });
+    } catch (err) {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data,
+      });
+    }
+  };
 };

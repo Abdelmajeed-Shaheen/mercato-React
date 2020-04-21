@@ -6,6 +6,7 @@ import Home from "./components/home/Home";
 import SearchPage from "./components/searchpage/SearchPage";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Cart from "./components/cart/Cart";
+import Profile from "./components/profile/Profile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/search/:category" component={SearchPage} />
         <Route path="/search" component={SearchPage} />
         <Route path="/cart" component={Cart} />
+        <Route path="/profile" component={Profile} />
         <Redirect to="/home" />
       </Switch>
     </div>

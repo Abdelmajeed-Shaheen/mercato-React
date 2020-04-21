@@ -6,6 +6,7 @@ import errorReducer from "./errors";
 import categoryReducer from "./category";
 import itemReducer from "./item";
 import cartReducer from "./cart";
+import orderReducer from "./order";
 
 export default combineReducers({
   userState: userReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   categoryState: categoryReducer,
   itemState: itemReducer,
   cartState: cartReducer,
+  orderState: orderReducer,
 });

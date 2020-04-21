@@ -1,6 +1,7 @@
 //user
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const SET_ERRORS = "SET_ERRORS";
+export const GETPROFILE = "GETPROFILE";
 
 //items&categories
 export const GET_CATEGORIES = "GET_CATEGORIES";
@@ -12,3 +13,7 @@ export const ADD_CART_ITEM = "ADD_CART_ITEM";
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
 export const EMPTY_CART = "EMPTY_CART";
 export const CHECKOUT = "CHECKOUT";
+
+//Order
+export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
+export const CLEAR_ORDERS = "CLEAR_ORDERS";

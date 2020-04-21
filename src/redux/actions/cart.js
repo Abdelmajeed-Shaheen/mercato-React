@@ -1,10 +1,5 @@
 import { instance } from "./instance";
-import {
-  ADD_CART_ITEM,
-  REMOVE_CART_ITEM,
-  EMPTY_CART,
-  CHECKOUT,
-} from "./actionTypes";
+import { ADD_CART_ITEM, REMOVE_CART_ITEM, EMPTY_CART } from "./actionTypes";
 import { getAllItems } from "./Item";
 
 export const addCartItem = (item, quantity) => {
@@ -31,10 +26,9 @@ export const emptyCart = () => {
 export const checkout = () => {
   return async dispatch => {
     try {
-      const name = "cart";
       const cart = { cart: localStorage.getItem("cart") };
 
-      const res = await instance.post("api/addorder/", cart);
+      await instance.post("api/addorder/", cart);
       dispatch(emptyCart());
       dispatch(getAllItems());
       // history.replace("/home");

@@ -1,21 +1,20 @@
-import { SET_CURRENT_USER, GETPROFILE } from "../actions/actionTypes";
+import { GET_ALL_ORDERS, CLEAR_ORDERS } from "../actions/actionTypes";
 
 const initialState = {
-  user: null,
-  profile: null,
+  orders: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case SET_CURRENT_USER:
+    case GET_ALL_ORDERS:
       return {
         ...state,
-        user: payload,
+        orders: payload,
       };
-    case GETPROFILE:
+    case CLEAR_ORDERS:
       return {
         ...state,
-        profile: payload,
+        orders: [],
       };
     default:
       return state;

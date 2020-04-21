@@ -2,7 +2,6 @@ import {
   ADD_CART_ITEM,
   REMOVE_CART_ITEM,
   EMPTY_CART,
-  CHECKOUT,
 } from "../actions/actionTypes";
 const initialState = {
   cartitems: JSON.parse(localStorage.getItem("cart"))
@@ -15,10 +14,10 @@ const reducer = (state = initialState, { type, payload }) => {
     case ADD_CART_ITEM:
       const newitem = payload;
       const previtem = state.cartitems.find(
-        (cartitem) => cartitem.item.id === newitem.item.id
+        cartitem => cartitem.item.id === newitem.item.id
       );
       if (previtem) {
-        const newcart = state.cartitems.map((cartitem) =>
+        const newcart = state.cartitems.map(cartitem =>
           cartitem === previtem
             ? {
                 item: cartitem.item,
@@ -37,7 +36,7 @@ const reducer = (state = initialState, { type, payload }) => {
         };
       }
     case REMOVE_CART_ITEM:
-      const deletedcart = state.cartitems.filter((item) => item !== payload);
+      const deletedcart = state.cartitems.filter(item => item !== payload);
       localStorage.setItem("cart", JSON.stringify(deletedcart));
       return {
         ...state,
