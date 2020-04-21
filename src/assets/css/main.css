@@ -19,6 +19,13 @@
   background-size: cover;
   background-position: center;
 }
+.bgorder {
+  background-image: url(../images/order2.jpg);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
 
 .logo {
   background-image: url(../images/logo.png);

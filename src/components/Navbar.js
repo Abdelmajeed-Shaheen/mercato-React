@@ -5,7 +5,7 @@ import * as actions from "../redux/actions";
 import Logo from "../assets/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-const Navbar = props => {
+const Navbar = (props) => {
   const clear = () => {
     props.logout();
     props.clearOrders();
@@ -42,7 +42,7 @@ const Navbar = props => {
                 to="/profile"
                 style={{ textDecoration: "none", color: "#469045" }}
               >
-                <div className="col-3 mr-5" onClick={props.getOrders}>
+                <div className="col-3 " onClick={props.getOrders}>
                   <h6>{props.user.username}</h6>
                 </div>
               </Link>
@@ -56,13 +56,15 @@ const Navbar = props => {
               </Link>
             </>
           )}
-          <div className="col-3">
+          <div className="col">
             <Link to="/cart">
               <FontAwesomeIcon
                 icon={faShoppingCart}
                 style={{ color: "#fef105" }}
               />
-              {props.cart.length && props.cart.length}
+              <span className="badge badge-light " style={{ color: "red" }}>
+                {props.cart.length && props.cart.length}
+              </span>
             </Link>
           </div>
         </div>
@@ -71,12 +73,12 @@ const Navbar = props => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.userState.user,
   cart: state.cartState.cartitems,
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(actions.logout()),
     getOrders: () => dispatch(actions.getOrders()),

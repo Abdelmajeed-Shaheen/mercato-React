@@ -35,61 +35,66 @@ class Cart extends Component {
       );
     });
     return (
-      <div className="container mt-3">
-        <div className="row">
-          <div className="col-md-3"></div>
-          <div className="col-md-6 ">
-            <div></div>
-            <h1 className="text-center" style={{ color: "#469045" }}>
-              {this.props.user ? `${this.props.user.username}'s` : "Your"} Cart
-            </h1>
-            <Link
-              style={{ color: "#469045", textDecoration: "none" }}
-              onClick={() => this.props.clear()}
-            >
-              Clear Cart
-              <FontAwesomeIcon icon={faTrash} style={{ color: "red" }} />
-            </Link>
-            <div
-              className="mt-4"
-              style={{
-                height: "400px",
-                overflowY: "scroll",
-                scrollbarWidth: "none",
-              }}
-            >
-              <ul className="list-group">
-                {cartitemslist.length ? (
-                  cartitemslist
-                ) : (
-                  <li className="list-group-item text-center">No Itmes Yet</li>
-                )}
-              </ul>
-            </div>
-            <div className="text-center">
-              <h3 style={{ color: "#469045" }}>
-                Total : {total.toFixed(2)} JOD
-              </h3>
-              {this.props.user ? (
-                <>
+      <div className="bglogin">
+        <div className="container ">
+          <div className="row">
+            <div className="col-md-3"></div>
+            <div className="col-md-6 ">
+              <div></div>
+              <h1 className="text-center" style={{ color: "#469045" }}>
+                {this.props.user ? `${this.props.user.username}'s` : "Your"}{" "}
+                Cart
+              </h1>
+              <Link
+                style={{ color: "#469045", textDecoration: "none" }}
+                onClick={() => this.props.clear()}
+              >
+                Clear Cart{" "}
+                <FontAwesomeIcon icon={faTrash} style={{ color: "red" }} />
+              </Link>
+              <div
+                className="mt-4"
+                style={{
+                  height: "400px",
+                  overflowY: "scroll",
+                  scrollbarWidth: "none",
+                }}
+              >
+                <ul className="list-group">
                   {cartitemslist.length ? (
-                    <button
-                      className="btn btn-warning btn-block my-4"
-                      onClick={this.props.checkout}
-                    >
-                      checkout
-                    </button>
+                    cartitemslist
                   ) : (
-                    <div className="alert alert-danger" role="alert">
-                      You need to Add items in order to check out
-                    </div>
+                    <li className="list-group-item text-center">
+                      No Itmes Yet
+                    </li>
                   )}
-                </>
-              ) : (
-                <div className="alert alert-danger" role="alert">
-                  You need to Login in order to check out
-                </div>
-              )}
+                </ul>
+              </div>
+              <div className="text-center">
+                <h3 style={{ color: "red", fontWeight: "bold" }}>
+                  Total : {total.toFixed(2)} JOD
+                </h3>
+                {this.props.user ? (
+                  <>
+                    {cartitemslist.length ? (
+                      <button
+                        className="btn btn-warning btn-block my-4"
+                        onClick={this.props.checkout}
+                      >
+                        checkout
+                      </button>
+                    ) : (
+                      <div className="alert alert-danger" role="alert">
+                        You need to Add items in order to check out
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="alert alert-danger" role="alert">
+                    You need to Login in order to check out
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

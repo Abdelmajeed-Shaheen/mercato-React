@@ -34,6 +34,12 @@ const ItemDetail = ({ item }) => {
               >
                 <p>{item.descreption}</p>
               </div>
+              <div className="row">
+                <p>Price: {item.price} JOD </p>
+              </div>
+              <div className="row">
+                <p>Availability: {item.in_stock}</p>
+              </div>
               <div className="row mt-2">
                 <AddToCart item={item} />
               </div>

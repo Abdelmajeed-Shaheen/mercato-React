@@ -39,60 +39,62 @@ class Profile extends Component {
     });
     return (
       <>
-        <div className="container mt-3">
-          <div className="row mb-2">
-            <div className="col-md-3"></div>
-            <div className="col-md-6">
-              <div className="alert alert-primary" role="alert">
-                <div className="row">
-                  <div className="col-6">
-                    Name:{" "}
-                    {`${this.props.profile.first_name} ${this.props.profile.last_name}`}
-                  </div>
-                  <div className="col-6">
-                    Email:{" "}
-                    {this.props.profile.email
-                      ? this.props.profile.email
-                      : "No email provided"}
+        <div className="bglogin">
+          <div className="container">
+            <div className="row mb-2">
+              <div className="col-md-3"></div>
+              <div className="col-md-6">
+                <div className="alert alert-primary my-3" role="alert">
+                  <div className="row ">
+                    <div className="col-6">
+                      Name:{" "}
+                      {`${this.props.profile.first_name} ${this.props.profile.last_name}`}
+                    </div>
+                    <div className="col-6">
+                      Email:{" "}
+                      {this.props.profile.email
+                        ? this.props.profile.email
+                        : "No email provided"}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-md-3"></div>
-            <div className="col-md-6 ">
-              <div></div>
-              <h4 className="text-center" style={{ color: "#469045" }}>
-                Orders History
-              </h4>
-              <div
-                className="mt-4"
-                style={{
-                  height: "400px",
-                  overflowY: "scroll",
-                  scrollbarWidth: "none",
-                }}
-              >
-                <ul className="list-group">
-                  {Orderslist.length ? (
-                    Orderslist
-                  ) : (
-                    <li className="list-group-item text-center">
-                      No Orders Yet
-                    </li>
-                  )}
-                </ul>
+            <div className="row">
+              <div className="col-md-3"></div>
+              <div className="col-md-6 ">
+                <div></div>
+                <h4 className="text-center" style={{ color: "#469045" }}>
+                  Orders History
+                </h4>
+                <div
+                  className="mt-4"
+                  style={{
+                    height: "400px",
+                    overflowY: "scroll",
+                    scrollbarWidth: "none",
+                  }}
+                >
+                  <ul className="list-group">
+                    {Orderslist.length ? (
+                      Orderslist
+                    ) : (
+                      <li className="list-group-item text-center">
+                        No Orders Yet
+                      </li>
+                    )}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
+          {this.state.order && <OrderModal order={this.state.order} />}
         </div>
-        {this.state.order && <OrderModal order={this.state.order} />}
       </>
     );
   }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.userState.profile,
   orders: state.orderState.orders,
 });

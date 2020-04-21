@@ -1,6 +1,6 @@
 import React from "react";
 const OrderModal = ({ order }) => {
-  const productsList = order.products.map(item => {
+  const productsList = order.products.map((item) => {
     return <li className="list-group-item">{item}</li>;
   });
   return (
@@ -31,7 +31,7 @@ const OrderModal = ({ order }) => {
             </button>
           </div>
           <div className="modal-body">
-            <h5 className="text-center">you Bought</h5>
+            <h5 className="text-center">You Bought</h5>
             <ul className="list-group">{productsList}</ul>
           </div>
           <div className="modal-footer text-center">
